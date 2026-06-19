@@ -17,3 +17,7 @@
 ## Session: update Manoj Bora profile — Travysys brand
 
 - Updated `workspace/people/manoj-bora/profile.md`: added `projects` list (`Travysys`, role: founder, status: active) and second link entry (`{ label: travysys, url: https://travysys.com }`); bumped `updated` to 2026-06-20; both validators exit 0; commit `0f2b5b5`.
+
+## Session: log call with Manoj Bora (2026-06-19)
+
+- `/log-call` — wrote `workspace/people/manoj-bora/calls/2026/06-19/notes.md`; topics: instagram-growth, paid-ads, content-strategy, travysys; key learnings: media marketer (FB+Google, INR 12k/mo fee + INR 30k/mo ad budget for Travysys), content strategist + video editor (INR 6k/mo, @shivanginarula.in ~330k followers), @thekumarmethod 1.2M followers from 6 videos; both validators exit 0; commit TBD.
