@@ -9,3 +9,7 @@
 - Authored `/log-call` skill at `.agents/skills/log-call/SKILL.md` with symlink `.claude/skills/log-call` → `../../.agents/skills/log-call`. (c266ac0)
 - Created role-models index at `workspace/areas/learning/resources/role-models/README.md`. (c266ac0)
 - All 8 pre-commit validators passed (exit 0) before and during commit; pushed to `origin/main` at commit `c266ac0`.
+
+## Session: add Manoj Bora to people registry
+
+- `/add-person` — added `Manoj Bora` (`type: person`, slug: `manoj-bora`) to `workspace/people/manoj-bora/profile.md`; Instagram stored as `links[0]` (`{ label: instagram, url: https://www.instagram.com/mavericks_92 }`); validators exit 0; commit TBD.
