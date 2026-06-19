@@ -13,3 +13,7 @@
 ## Session: add Manoj Bora to people registry
 
 - `/add-person` — added `Manoj Bora` (`type: person`, slug: `manoj-bora`) to `workspace/people/manoj-bora/profile.md`; Instagram stored as `links[0]` (`{ label: instagram, url: https://www.instagram.com/mavericks_92 }`); validators exit 0; commit `9325c4e`.
+
+## Session: update Manoj Bora profile — Travysys brand
+
+- Updated `workspace/people/manoj-bora/profile.md`: added `projects` list (`Travysys`, role: founder, status: active) and second link entry (`{ label: travysys, url: https://travysys.com }`); bumped `updated` to 2026-06-20; both validators exit 0; commit TBD.
