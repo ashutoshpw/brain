@@ -17,3 +17,4 @@
 - **[proposed]** Set up a newsletter or recurring writing format to build an owned audience. <!-- TODO: personalize -->
 - **[proposed]** Review and decide on consulting rate; set a hard ceiling on consulting hours to protect product time.
 - **[proposed]** Build a personal CRM / outreach cadence in the relationships area to actively nurture the network.
+- **[proposed]** Stand up a paid Instagram growth engine to market my software products — ~INR 48k/month model (media marketer INR 12k + ad spend INR 30k + content strategist/editor INR 6k). Playbook: `resources/ad-economics/README.md`. Pending decision on budget + timing; validate organic content format first before committing to full spend.
