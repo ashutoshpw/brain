@@ -15,12 +15,7 @@
  * Locations checked:
  *   1. CLAUDE.md — "## The 6 life areas" section
  *   2. workspace/references/README.md — area→archetype mapping (if file exists)
- *   3. .agents/skills/life-status/SKILL.md — area table (if file exists; skipped
- *      gracefully with a NOTE if absent since the skill is not built yet in Phase 1)
- *
- * TODO (Phase 4): wire the life-status skill check once .agents/skills/life-status/SKILL.md
- * is authored. For now the check is tolerant: if the file is absent it skips with a note
- * rather than hard-failing, so Phase 1 commits pass cleanly.
+ *   3. .agents/skills/life-status/SKILL.md — area table (required; authored in Phase 4)
  *
  * Exit codes:
  *   0 — every area is present in every required location (or no areas yet)
@@ -59,7 +54,7 @@ const LOCATIONS: Location[] = [
   {
     file: ".agents/skills/life-status/SKILL.md",
     label: "life-status skill (area table)",
-    optional: true, // TODO: Phase 4 — remove optional once skill is authored
+    // Phase 4: skill is now authored — check is required (not optional)
   },
 ];
 
