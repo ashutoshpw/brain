@@ -21,3 +21,8 @@
 ## Session: log call with Manoj Bora (2026-06-19)
 
 - `/log-call` — wrote `workspace/people/manoj-bora/calls/2026/06-19/notes.md`; topics: instagram-growth, paid-ads, content-strategy, travysys; key learnings: media marketer (FB+Google, INR 12k/mo fee + INR 30k/mo ad budget for Travysys), content strategist + video editor (INR 6k/mo, @shivanginarula.in ~330k followers), @thekumarmethod 1.2M followers from 6 videos; both validators exit 0; commit `2353487`.
+
+## Session: reference profiles + ad-economics playbook
+
+- Added `workspace/people/thekumarmethod/profile.md` (`type: notable-person`, field: Instagram growth / short-form video) and `workspace/people/shivanginarula/profile.md` (`type: notable-person`, field: Instagram lifestyle / content); added both as new rows to `workspace/areas/learning/resources/role-models/README.md`; all 8 validators exit 0; commit `3cdb516`.
+- Added `workspace/areas/career/resources/ad-economics/README.md` — paid Instagram growth cost model (INR 48k/month total: marketer + ad spend + content strategist) sourced from Manoj Bora call 2026-06-19; added `[proposed]` career ROADMAP item for Instagram-led software funnel; all 8 validators exit 0; commit `3cdb516`.
