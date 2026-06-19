@@ -13,7 +13,9 @@ GitHub: ashutoshpw/brain.
 
 `workspace/scheduled/` — **forward-scheduling** folder. Items here are strictly FUTURE; `workspace/tasks/` is strictly NOW/PAST. Two content kinds: (1) date-tagged lines in the single living file `scheduled.md`, using `- [ ] (YYYY-MM-Wn) item` (week-targeted) or `- [ ] (YYYY-MM-DD) item` (day-targeted); (2) prepared multi-file artifacts in `YYYY/MM-Wn/` or `YYYY/MM-DD/` subfolders. `/week` and `/day` scan `scheduled/` at run time, graduate matching items into the appropriate `tasks/` folder (moving, not copying), and remove them from `scheduled/` so nothing lives in two places.
 
-`workspace/people/` — **relationships registry**. One folder per person (`<slug>/profile.md`) with YAML frontmatter: `type`, `name`, `relation`, `area`, `cadence_days`, `important_dates`, `tags`, `updated`. Family members use `type: family-member` with additional fields (`dob`, `relationship`, physical stats, dietary/medical notes). Validated by `scripts/check-people-data.ts`.
+`workspace/people/` — **relationships registry**. One folder per person (`<slug>/profile.md`) with YAML frontmatter: `type`, `name`, `relation`, `area`, `cadence_days`, `important_dates`, `tags`, `updated`. Three accepted types: `person` (friends, mentors, colleagues), `family-member` (richer subtype with `dob`, `relationship`, physical stats, dietary/medical notes), and `notable-person` (global figures / role models tracked for learning — stores projects, achievements, and lessons). Validated by `scripts/check-people-data.ts`.
+
+Per-person **call notes** live at `workspace/people/<slug>/calls/YYYY/MM-DD/notes.md` — one dated folder per conversation. Each is a frontmatter doc capturing the call's date, topics, and learnings (plus optional follow-ups). Reviewing "the last conversation" with someone means reading the most recent `calls/**/notes.md` under that person's folder. Validated by `scripts/check-people-data.ts`.
 
 ## The 6 life areas
 
@@ -56,9 +58,11 @@ Area-specific resources (data exports, research, notes) live under `workspace/ar
 
 ## People registry (`workspace/people/`)
 
-Mirrors `social-profiles` from control-pane. Frontmatter validated by `scripts/check-people-data.ts`. The credential-pattern scan (secrets check) from control-pane is retained.
+Mirrors `social-profiles` from control-pane. Frontmatter validated by `scripts/check-people-data.ts`. The credential-pattern scan (secrets check) from control-pane is retained. **All people data is stored in YAML frontmatter** — the prose body is optional/supplementary context only.
 
-**Person frontmatter:**
+Three accepted `type` values: `person`, `family-member`, `notable-person`.
+
+**Person frontmatter** (friends, mentors, colleagues, acquaintances):
 ```yaml
 ---
 type: person
@@ -66,12 +70,18 @@ name: <full name>
 relation: family | friend | mentor | colleague | acquaintance
 area: relationships
 cadence_days: 30
+location: <city, country>              # optional
+how_we_met: <brief context>            # optional
+interests: [<topic>, ...]              # optional
 important_dates:
   - { label: birthday, date: MM-DD }
 tags: [<topic>, ...]
+notes: <free text>                     # optional
 updated: YYYY-MM-DD
 ---
 ```
+
+A friend can be added by name alone — `name` plus the auto-filled required fields (`type: person`, `relation: friend`, `area: relationships`, `updated`) is the minimum floor; every other field is optional frontmatter. All data is stored in frontmatter.
 
 **Family-member frontmatter** (richer subtype — additionally requires `dob` + `relationship`):
 ```yaml
@@ -102,6 +112,60 @@ updated: YYYY-MM-DD
 ```
 
 The relationships area also gets `workspace/areas/relationships/resources/family/ROSTER.md` — a human-readable index of family members linking to each `people/<slug>/profile.md`.
+
+**Notable-person frontmatter** (global figures / role models tracked to learn from — feeds the learning/career improvement loop):
+```yaml
+---
+type: notable-person
+name: <full name>
+area: learning                         # or career
+field: <domain string>                 # e.g. "distributed systems", "growth marketing"
+why_tracked: <one-line reason>
+relation: role-model                   # optional; only allowed value if present
+nationality: <country>                 # optional
+links:                                 # optional
+  - { label: website, url: https://... }
+  - { label: twitter, url: https://... }
+projects:                              # optional
+  - name: <project name>              # required within each project entry
+    role: <founder | contributor | ...>
+    status: active | completed | archived
+    achievements:
+      - <notable outcome>
+achievements:                          # optional — standalone (not project-scoped)
+  - <lifetime achievement>
+lessons:                               # optional — what I learn / how to apply
+  - <actionable takeaway>
+important_dates:                       # optional
+  - { label: birthday, date: MM-DD }
+tags: [<topic>, ...]
+updated: YYYY-MM-DD
+---
+```
+
+`notable-person` records live in `workspace/people/` alongside relationship people but are typed differently. They do NOT use the personal `relation` enum (friend/mentor/colleague/etc.) — `relation: role-model` is the only allowed value, and it is optional. Their `area` is `learning` or `career` (not `relationships`), making them first-class inputs to the learning and career area docs and this week's learnings file.
+
+**Call-note frontmatter** (`workspace/people/<slug>/calls/YYYY/MM-DD/notes.md` — one per conversation):
+```yaml
+---
+type: call-note
+person: <slug>             # must equal the person's folder slug
+date: YYYY-MM-DD           # must equal the YYYY/MM-DD from the path
+channel: call              # optional: call | video | in-person | text
+duration_min: 35           # optional
+topics: [<topic>, ...]     # optional
+learnings:                 # required — the takeaways from the conversation
+  - <what I learned / what matters>
+follow_ups:                # optional — actions / things for next time
+  - <action item>
+mood: <vibe>               # optional
+updated: YYYY-MM-DD        # optional
+---
+
+<prose: full notes from the call>
+```
+
+The `date` field and the `YYYY/MM-DD` path folder must agree, and `person` must equal the folder slug — both enforced by the validator. `learnings` is required.
 
 ## Workspace layout (enforced)
 
@@ -168,6 +232,8 @@ All skills authored under `.agents/skills/<kebab>/SKILL.md`, surfaced via symlin
 |---|---|---|
 | `/life-status` | brand-status | Health-check across all 6 areas: pull metrics (Whoop/Brex read-only), flag what's off-target vs prior period |
 | `/add-area` | add-project | Onboard a new life area: scaffold the 6 docs, register in CLAUDE.md + skill tables + references README (atomic commit, passes all guards) |
+| `/add-person` | (new) | Add someone to the people registry — a friend/mentor/colleague by name (minimal frontmatter), a family member (richer subtype), or a `notable-person` global role-model (projects, achievements, lessons) that feeds the learning/career area + this week's learnings. All data stored in frontmatter. |
+| `/log-call` | (new) | Log a conversation/call with someone in the people registry — writes `workspace/people/<slug>/calls/YYYY/MM-DD/notes.md` with the call's date, topics, learnings, and follow-ups (all in frontmatter). Also surfaces recent calls when asked to "review last convo" with a person. |
 | `/go-deep` | go-deep | YC-style "pick one area and go deep" — depth audit + 30-day plan for one area |
 | `/youtube` | youtube | Distill a video into `resources/expert-guide/`, apply learnings to relevant area docs + this week's learnings |
 | `/create-skill` | create-skill | Author new skills with correct structure + symlinks |

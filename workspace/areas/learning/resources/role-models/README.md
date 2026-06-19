@@ -1,0 +1,27 @@
+# Role Models
+
+People I track for learning and inspiration. Full profiles — including projects, achievements, and actionable lessons — live in `workspace/people/`.
+
+> Source of truth: `workspace/people/<slug>/profile.md` for each entry.
+> This index is for navigation only — do not duplicate frontmatter data here.
+> To add a new entry, run `/add-person` and choose `type: notable-person`.
+
+---
+
+## Index
+
+| Name | Field | Why tracked | Profile |
+|---|---|---|---|
+| Notable Person One | angel investing | Pioneered frameworks for early-stage evaluation that I study to improve my own investment thinking | [profile](../../../../people/notable-person-1/profile.md) |
+
+---
+
+## Adding a role model
+
+1. Run `/add-person <name>` and select `type: notable-person`.
+2. The skill writes `workspace/people/<slug>/profile.md` and upserts a row here automatically.
+3. Commit — `check-people-data.ts` validates the frontmatter.
+
+## Removing / archiving a role model
+
+Move the profile to `workspace/resources/archive/YYYY-MM-DD-<slug>/` with a provenance README. Remove the row from the index above.
