@@ -16,4 +16,4 @@
 
 ## Session: update Manoj Bora profile — Travysys brand
 
-- Updated `workspace/people/manoj-bora/profile.md`: added `projects` list (`Travysys`, role: founder, status: active) and second link entry (`{ label: travysys, url: https://travysys.com }`); bumped `updated` to 2026-06-20; both validators exit 0; commit TBD.
+- Updated `workspace/people/manoj-bora/profile.md`: added `projects` list (`Travysys`, role: founder, status: active) and second link entry (`{ label: travysys, url: https://travysys.com }`); bumped `updated` to 2026-06-20; both validators exit 0; commit `0f2b5b5`.
