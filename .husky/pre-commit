@@ -1,3 +1,9 @@
-#!/usr/bin/env sh
-# validators wired in Phase 1
-exit 0
+bun scripts/check-area-docs.ts
+bun scripts/check-workspace-layout.ts
+bun scripts/check-staged-md.ts
+bun scripts/check-people-data.ts
+bun scripts/check-claude-skills-symlinks.ts
+bun scripts/check-expert-guide-summaries.ts
+bun scripts/check-references.ts
+bun scripts/check-area-coverage.ts
+bunx lint-staged
