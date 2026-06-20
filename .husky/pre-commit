@@ -6,4 +6,5 @@ bun scripts/check-claude-skills-symlinks.ts
 bun scripts/check-expert-guide-summaries.ts
 bun scripts/check-references.ts
 bun scripts/check-area-coverage.ts
+bun scripts/check-agent-tasks.ts
 bunx lint-staged

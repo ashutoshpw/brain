@@ -15,6 +15,7 @@ People I track for learning and inspiration. Full profiles — including project
 | Notable Person One | angel investing | Pioneered frameworks for early-stage evaluation that I study to improve my own investment thinking | [profile](../../../../people/notable-person-1/profile.md) |
 | The Kumar Method | Instagram growth / short-form video | Reportedly reached 1.2M Instagram followers from just 6 videos — study how concentrated, high-quality content drives outsized growth. | [profile](../../../../people/thekumarmethod/profile.md) |
 | Shivangi Narula | Instagram lifestyle / content (~330k followers) | ~330k-follower Instagram profile managed by the content strategist Manoj Bora works with — reference for content quality, topic selection, and editing. | [profile](../../../../people/shivanginarula/profile.md) |
+| Prithal Bharadwaj | LinkedIn content & growth / content automation | Runs an automated LinkedIn content pipeline (Reddit-sourced -> Antigravity -> AI-generated posts + images -> scheduled). Tracking as a model for systematized content growth. | [profile](../../../../people/prithal-bharadwaj/profile.md) |
 
 ---
 
