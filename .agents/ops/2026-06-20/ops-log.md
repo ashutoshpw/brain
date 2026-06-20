@@ -26,3 +26,12 @@
 
 - Added `workspace/people/thekumarmethod/profile.md` (`type: notable-person`, field: Instagram growth / short-form video) and `workspace/people/shivanginarula/profile.md` (`type: notable-person`, field: Instagram lifestyle / content); added both as new rows to `workspace/areas/learning/resources/role-models/README.md`; all 8 validators exit 0; commit `3cdb516`.
 - Added `workspace/areas/career/resources/ad-economics/README.md` — paid Instagram growth cost model (INR 48k/month total: marketer + ad spend + content strategist) sourced from Manoj Bora call 2026-06-19; added `[proposed]` career ROADMAP item for Instagram-led software funnel; all 8 validators exit 0; commit `3cdb516`.
+
+## Session: agent-task subsystem + Prithal Bharadwaj tracking
+
+- Created `.agents/tasks/README.md` — spec for the agent-task subsystem: capability-gated deferred AI tasks, one frontmatter file per task, fields: `id`, `title`, `type`, `status`, `capability`, `area`, `created`, `due`, `owner`, `blocked_reason`, `links`. Distinct from `workspace/scheduled/` (human planning) and `workspace/tasks/backlog.md`. (4a9ed08)
+- Wrote `scripts/check-agent-tasks.ts` — validator that enforces agent-task frontmatter schema; wired into `.husky/pre-commit` as `bun scripts/check-agent-tasks.ts` (line 9, same style as all other validators); all 9 validators exit 0. (4a9ed08)
+- Authored `/agent-task` skill at `.agents/skills/agent-task/SKILL.md` with symlink `.claude/skills/agent-task`; skill supports `add|list|run|done|cancel` subcommands. (4a9ed08)
+- Added `workspace/people/prithal-bharadwaj/profile.md` (`type: notable-person`, slug: `prithal-bharadwaj`, field: YouTube growth / subscriber acquisition, LinkedIn slug: `prithal-bhardwaj`); registered as new row in `workspace/areas/learning/resources/role-models/README.md`. (4a9ed08)
+- Created `.agents/tasks/2026-06-20-prithal-youtube.md` — pending agent task to fetch Prithal Bharadwaj's YouTube channel data and distil learnings into `resources/expert-guide/`; `capability: youtube`. (4a9ed08)
+- Created `.agents/tasks/2026-06-20-prithal-linkedin.md` — pending agent task to fetch Prithal's LinkedIn profile and reconcile canonical name spelling (folder: `prithal-bharadwaj`, LinkedIn slug: `prithal-bhardwaj`); `capability: browser`. (4a9ed08)
