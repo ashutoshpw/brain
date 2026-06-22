@@ -16,6 +16,7 @@ People I track for learning and inspiration. Full profiles — including project
 | The Kumar Method | Instagram growth / short-form video | Reportedly reached 1.2M Instagram followers from just 6 videos — study how concentrated, high-quality content drives outsized growth. | [profile](../../../../people/thekumarmethod/profile.md) |
 | Shivangi Narula | Instagram lifestyle / content (~330k followers) | ~330k-follower Instagram profile managed by the content strategist Manoj Bora works with — reference for content quality, topic selection, and editing. | [profile](../../../../people/shivanginarula/profile.md) |
 | Prithal Bharadwaj | LinkedIn content & growth / content automation | Runs an automated LinkedIn content pipeline (Reddit-sourced -> Antigravity -> AI-generated posts + images -> scheduled). Tracking as a model for systematized content growth. | [profile](../../../../people/prithal-bharadwaj/profile.md) |
+| Manthan Patel ("Lead Gen Man") | AI lead generation & automation; indie SaaS | Built a 100K+ student base into a $49/mo community + solo SaaS ladder — a model for monetizing AI/creator expertise. | [profile](../../../../people/manthaan-lead-gen/profile.md) |
 
 ---
 
